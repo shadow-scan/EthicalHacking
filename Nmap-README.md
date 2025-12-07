@@ -20,7 +20,8 @@ All scans were performed on systems I own or have explicit permission to test.
 - `eleven.xml` → VNC info enumeration (port 5900)  
 - `twelve.xml` → HTTP/HTTPS methods check (ports 80, 443)  
 - `thirteen.xml` → HTTP service enumeration (port 80)  
-- `fourteen.xml` → Malware script + top 25 ports scan  
+- `fourteen.xml` → Malware script + Top 25 ports scan
+- `fifteen.xml` → External Script + Top 25 Ports Scan
 
 ---
 
@@ -68,3 +69,7 @@ nmap --privileged -sV -T3 -p 80 --open -oX thirteen.xml --script http-enum 10.50
 # 1️⃣3️⃣ Malware Script + Top 25 Ports Scan
 nmap --privileged -sV -T3 --open --top-ports 25 -oX fourteen.xml \
 --script malware --exclude 10.50.90.1,10.50.90.4,10.50.90.15 10.50.90.0/24
+
+# 1️⃣4️⃣ External Script + Top 25 Ports Scan
+/usr/lib/nmap/nmap --privileged -sV -T4 --open --top-ports 25 -Pn \
+-oX fifteen.xml --script external 10.50.90.0/24
