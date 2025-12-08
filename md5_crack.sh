@@ -1,0 +1,2 @@
+#!/bin/bash
+hashcat -a 0 -m 0 /home/robot/hashes.txt /usr/share/wordlists/rockyou.txt 
