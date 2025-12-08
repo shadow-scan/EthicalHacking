@@ -1,0 +1,3387 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns:fo="http://www.w3.org/1999/XSL/Format">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--generated with nmap.xsl - version 0.9c by Benjamin Erb - http://www.benjamin-erb.de/nmap_xsl.php --><style type="text/css">
+/* stylesheet print */
+@media print
+{
+  #menu {
+    display:none;
+  }
+
+  body {
+    font-family: Verdana, Helvetica, sans-serif;
+  }
+  
+  h1 {
+    font-size: 13pt;
+    font-weight:bold;
+    margin:4pt 0pt 0pt 0pt;
+    padding:0;
+  }
+
+  h2 {
+    font-size: 12pt;
+    font-weight:bold;
+    margin:3pt 0pt 0pt 0pt;
+    padding:0;
+  }
+
+  h3, a:link, a:visited {
+    font-size: 9pt;
+    font-weight:bold;
+    margin:1pt 0pt 0pt 20pt;
+    padding:0;
+    text-decoration: none;
+    color: #000000;
+  }
+
+  p,ul {
+    font-size: 9pt;
+    margin:1pt 0pt 8pt 40pt;
+    padding:0;
+    text-align:left;
+  }
+
+  li {
+    font-size: 9pt;
+    margin:0;
+    padding:0;
+    text-align:left;
+  }
+
+  table {
+    margin:1pt 0pt 8pt 40pt;
+    border:0px;
+    width:90%
+  }
+
+  td {
+    border:0px;
+    border-top:1px solid black;
+    font-size: 9pt;
+  }
+
+  .head td {
+    border:0px;
+    font-weight:bold;
+    font-size: 9pt;
+  }
+  .noprint { display: none; }
+}
+
+/* stylesheet screen */
+@media screen
+{
+  body {
+    font-family: Verdana, Helvetica, sans-serif;
+    margin: 0px;
+    background-color: #FFFFFF;
+    color: #000000;
+    text-align: center;
+  }
+
+  #container {
+    text-align:left;
+    margin: 10px auto;
+    width: 90%;
+  }
+
+  h1 {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-weight:bold;
+    font-size: 14pt;
+    color: #FFFFFF;
+    background-color:#2A0D45;
+    margin:10px 0px 0px 0px;
+    padding:5px 4px 5px 4px;
+    width: 100%;
+    border:1px solid black;
+    text-align: left;
+  }
+
+  h2 {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-weight:bold;
+    font-size: 11pt;
+    color: #000000;
+    margin:30px 0px 0px 0px;
+    padding:4px;
+    width: 100%;
+    background-color:#F0F8FF;
+    text-align: left;
+  }
+
+  h2.green {
+    color: #000000;
+    background-color:#CCFFCC;
+    border-color:#006400;
+  }
+
+  h2.red {
+    color: #000000;
+    background-color:#FFCCCC;
+    border-color:#8B0000;
+  }
+   
+  h3 {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-weight:bold;
+    font-size: 10pt;
+    color:#000000;
+    background-color: #FFFFFF;
+    width: 75%;
+    text-align: left;
+  }
+
+  p {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 8pt;
+    color:#000000;
+    background-color: #FFFFFF;
+    width: 75%;
+    text-align: left;
+  }
+
+  p i {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 8pt;
+    color:#000000;
+    background-color: #CCCCCC;
+  }
+
+  ul {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 8pt;
+    color:#000000;
+    background-color: #FFFFFF;
+    width: 75%;
+    text-align: left;
+  }
+
+  a {
+    font-family: Verdana, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size: 8pt;
+    color:#000000;
+    font-weight:bold;
+    background-color: #FFFFFF;
+    color: #000000;
+  }
+
+  li a {
+    font-family: Verdana, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size: 10pt;
+    color:#000000;
+    font-weight:bold;
+    background-color: #FFFFFF;
+    color: #000000;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  a.up {
+      color:#006400;
+  }
+
+  table {
+    width: 80%;
+    border:0px;
+    color: #000000;
+    background-color: #000000;
+    margin:10px;
+  }
+
+  tr {
+    vertical-align:top;
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 8pt;
+    color:#000000;
+    background-color: #FFFFFF;
+  }
+
+  tr.head {
+    background-color: #E1E1E1;
+    color: #000000;
+    font-weight:bold;
+  }
+
+  tr.open {
+    background-color: #CCFFCC;
+    color: #000000;
+  }
+	
+  tr.script {
+    background-color: #EFFFF7;
+    color: #000000;
+  }
+
+  tr.filtered {
+    background-color: #F2F2F2;
+    color: #000000;
+  }
+
+  tr.closed {
+    background-color: #F2F2F2;
+    color: #000000;
+  }
+    
+  td {
+    padding:2px;
+  }
+        
+  #menu li {
+    display         : inline;
+    margin          : 0;
+    /*margin-right    : 10px;*/
+    padding         : 0;
+    list-style-type : none;
+  }    
+ 
+  #menubox {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    width: 120px;
+  }
+  
+  
+  
+  /* This section handle's IE's refusal to honor the fixed CSS attribute */
+  
+  * html div#menubox {
+    position: absolute;
+    top:expression(eval(
+      document.compatMode && document.compatMode=='CSS1Compat') ?
+      documentElement.scrollTop+(documentElement.clientHeight-this.clientHeight) 
+      : document.body.scrollTop +(document.body.clientHeight-this.clientHeight));
+  }
+  /* This fixes the jerky effect when scrolling in IE*/
+  * html,* html body {
+    background: #fff url(nosuchfile) fixed;
+  }
+
+  
+ 
+  .up {
+    color: #000000;
+    background-color:#CCFFCC;
+  }
+  
+  .down {
+    color:#626262;
+    background-color: #F2F2F2;
+  }
+
+  .print_only { display: none; }
+  .hidden { display: none; }
+  .unhidden { display: block; }
+  
+}
+</style>
+<title>Nmap Scan Report - Scanned at Mon Dec  8 09:55:53 2025</title>
+<script type="text/javascript">
+     
+      
+                
+      function toggle(divID) {
+        var item = document.getElementById(divID);
+        if (item) {
+          item.className=(item.className=='hidden')?'unhidden':'hidden';
+        }
+      }
+           
+      function togglePorts(tableID,portState) {
+        var table = document.getElementById(tableID);    
+        var tbody = table.getElementsByTagName("tbody")[0];
+        var rows = tbody.getElementsByTagName("tr");
+        for (var i=0; i < rows.length; i++) {
+          var value = rows[i].getElementsByTagName("td")[2].firstChild.nodeValue;
+          if (value == portState) {
+            rows[i].style.display = (rows[i].style.display == 'none')?'':'none';
+          }
+        }
+      }
+      
+      function toggleAll(portState) {
+        var allTables = document.getElementsByTagName("table");
+        for (var c=0; c < allTables.length; c++) {
+          if (allTables[c].id != "") {
+            togglePorts(allTables[c].id, portState)
+          }
+        }
+      }
+      
+      function init (){
+        toggleAll('closed');
+        toggleAll('filtered');     
+      }     
+            
+      window.onload = init; 
+      
+      
+    
+    </script>
+</head>
+<body>
+<a name="top"></a><div id="container">
+<h1>Nmap Scan Report - Scanned at Mon Dec  8 09:55:53 2025</h1>
+<ul id="menu">
+<li><a href="#scansummary">Scan Summary</a></li>
+<li> | <a href="#prescript">Pre-Scan Script Output</a>
+</li>
+<li> | <a href="#host_10_50_90_1" class="up">10.50.90.1</a>
+</li>
+<li> | <a href="#host_10_50_90_3" class="up">10.50.90.3</a>
+</li>
+<li> | <a href="#host_10_50_90_6" class="up">10.50.90.6</a>
+</li>
+<li> | <a href="#host_10_50_90_7" class="up">10.50.90.7</a>
+</li>
+<li> | <a href="#host_10_50_90_8" class="up">10.50.90.8</a>
+</li>
+<li> | <a href="#host_10_50_90_15" class="up">10.50.90.15</a>
+</li>
+<li> | <a href="#host_10_50_90_16" class="up">10.50.90.16</a>
+</li>
+<li> | <a href="#host_10_50_90_17" class="up">10.50.90.17</a>
+</li>
+<li> | <a href="#host_10_50_90_18" class="up">10.50.90.18</a>
+</li>
+<li> | <a href="#host_10_50_90_19" class="up">10.50.90.19</a>
+</li>
+</ul>
+<a name="scansummary"></a><hr class="print_only">
+<h2>Scan Summary</h2>
+<p>
+      Nmap 7.95 was initiated at Mon Dec  8 09:55:53 2025 with these arguments:<br><i>/usr/lib/nmap/nmap --privileged -T4 -sV -Pn --open -oX sixteen.xml --script broadcast 10.50.90.0/24</i><br></p>
+<p>
+    Verbosity: 0; Debug level 0</p>
+<p>Nmap done at Mon Dec  8 09:57:59 2025; 256 IP addresses (12 hosts up) scanned in 125.67 seconds</p>
+<hr class="print_only">
+<a name="prescript"></a><h2>Pre-Scan Script Output</h2>
+<table>
+<tr class="head">
+<td>Script Name</td>
+<td>Output</td>
+</tr>
+<tr class="script">
+<td>broadcast-igmp-discovery </td>
+<td><pre>
+  10.50.90.15
+    Interface: eth0
+    Version: 2
+    Group: 224.0.0.252
+    Description: Link-local Multicast Name Resolution (rfc4795)
+  10.50.90.15
+    Interface: eth0
+    Version: 2
+    Group: 239.255.255.250
+    Description: Organization-Local Scope (rfc2365)
+  Use the newtargets script-arg to add the results as targets
+</pre></td>
+</tr>
+<tr class="script">
+<td>targets-ipv6-multicast-slaac </td>
+<td><pre>
+  IP: fe80::a00:27ff:fe71:5630   MAC: 08:00:27:71:56:30  IFACE: eth0
+  IP: fe80::78d5:a898:b3f5:c3fe  MAC: 08:00:27:ff:b2:4e  IFACE: eth0
+  IP: fe80::a00:27ff:fe93:fdae   MAC: 08:00:27:93:fd:ae  IFACE: eth0
+  IP: fe80::a00:27ff:fe46:dcc8   MAC: 08:00:27:46:dc:c8  IFACE: eth0
+  IP: fe80::a00:27ff:fe73:d0bd   MAC: 08:00:27:73:d0:bd  IFACE: eth0
+  IP: fe80::a00:27ff:fe3f:d77b   MAC: 08:00:27:3f:d7:7b  IFACE: eth0
+  IP: fe80::a00:27ff:fe8a:8a62   MAC: 08:00:27:8a:8a:62  IFACE: eth0
+  IP: fe80::a00:27ff:fec6:bbd3   MAC: 08:00:27:c6:bb:d3  IFACE: eth0
+  IP: fe80::a00:27ff:feb7:e2a4   MAC: 08:00:27:b7:e2:a4  IFACE: eth0
+  Use --script-args=newtargets to add the results as targets
+</pre></td>
+</tr>
+<tr class="script">
+<td>targets-ipv6-multicast-mld </td>
+<td><pre>
+  IP: fe80::78d5:a898:b3f5:c3fe  MAC: 08:00:27:ff:b2:4e  IFACE: eth0
+  IP: fe80::a00:27ff:fe3f:d77b   MAC: 08:00:27:3f:d7:7b  IFACE: eth0
+  IP: fe80::a00:27ff:fe46:dcc8   MAC: 08:00:27:46:dc:c8  IFACE: eth0
+  IP: fe80::a00:27ff:fe71:5630   MAC: 08:00:27:71:56:30  IFACE: eth0
+  IP: fe80::a00:27ff:fe73:d0bd   MAC: 08:00:27:73:d0:bd  IFACE: eth0
+  IP: fe80::a00:27ff:fe8a:8a62   MAC: 08:00:27:8a:8a:62  IFACE: eth0
+  IP: fe80::a00:27ff:fe93:fdae   MAC: 08:00:27:93:fd:ae  IFACE: eth0
+  IP: fe80::a00:27ff:feb7:e2a4   MAC: 08:00:27:b7:e2:a4  IFACE: eth0
+  IP: fe80::a00:27ff:fec6:bbd3   MAC: 08:00:27:c6:bb:d3  IFACE: eth0
+
+  Use --script-args=newtargets to add the results as targets</pre></td>
+</tr>
+<tr class="script">
+<td>targets-ipv6-multicast-echo </td>
+<td><pre>
+  IP: fe80::a00:27ff:fe73:d0bd  MAC: 08:00:27:73:d0:bd  IFACE: eth0
+  IP: fe80::a00:27ff:fe46:dcc8  MAC: 08:00:27:46:dc:c8  IFACE: eth0
+  IP: fe80::a00:27ff:fe8a:8a62  MAC: 08:00:27:8a:8a:62  IFACE: eth0
+  IP: fe80::a00:27ff:fe3f:d77b  MAC: 08:00:27:3f:d7:7b  IFACE: eth0
+  IP: fe80::a00:27ff:fe71:5630  MAC: 08:00:27:71:56:30  IFACE: eth0
+  IP: fe80::a00:27ff:fec6:bbd3  MAC: 08:00:27:c6:bb:d3  IFACE: eth0
+  IP: fe80::a00:27ff:feb7:e2a4  MAC: 08:00:27:b7:e2:a4  IFACE: eth0
+  IP: fe80::a00:27ff:fe93:fdae  MAC: 08:00:27:93:fd:ae  IFACE: eth0
+  Use --script-args=newtargets to add the results as targets
+</pre></td>
+</tr>
+<tr class="script">
+<td>broadcast-dhcp-discover </td>
+<td><pre>
+  Response 1 of 1: 
+    Interface: eth0
+    IP Offered: 10.50.90.21
+    Server Identifier: 10.50.90.2
+    Subnet Mask: 255.255.255.0
+    Router: 10.50.90.1
+    Domain Name Server: 209.197.128.2, 209.197.128.5</pre></td>
+</tr>
+<tr class="script">
+<td>ipv6-multicast-mld-list </td>
+<td><pre>
+  fe80::78d5:a898:b3f5:c3fe: 
+    device: eth0
+    mac: 08:00:27:ff:b2:4e
+    multicast_ips: 
+      ff02::1:fff5:c3fe         (NDP Solicited-node)
+      ff02::1:3                 (Link-local Multicast Name Resolution)
+      ff02::1:3                 (Link-local Multicast Name Resolution)
+      ff02::1:3                 (Link-local Multicast Name Resolution)
+      ff02::1:3                 (Link-local Multicast Name Resolution)
+      ff02::c                   (SSDP)
+      ff02::1:3                 (Link-local Multicast Name Resolution)
+  fe80::a00:27ff:fe8a:8a62: 
+    device: eth0
+    mac: 08:00:27:8a:8a:62
+    multicast_ips: 
+      ff02::1:ff8a:8a62         (NDP Solicited-node)
+  fe80::a00:27ff:fe3f:d77b: 
+    device: eth0
+    mac: 08:00:27:3f:d7:7b
+    multicast_ips: 
+      ff02::1:ff3f:d77b         (NDP Solicited-node)
+  fe80::a00:27ff:fe93:fdae: 
+    device: eth0
+    mac: 08:00:27:93:fd:ae
+    multicast_ips: 
+      ff02::1:ff93:fdae         (NDP Solicited-node)
+  fe80::a00:27ff:fec6:bbd3: 
+    device: eth0
+    mac: 08:00:27:c6:bb:d3
+    multicast_ips: 
+      ff02::1:ffc6:bbd3         (NDP Solicited-node)
+  fe80::a00:27ff:fe71:5630: 
+    device: eth0
+    mac: 08:00:27:71:56:30
+    multicast_ips: 
+      ff02::1:ff71:5630         (NDP Solicited-node)
+  fe80::a00:27ff:feb7:e2a4: 
+    device: eth0
+    mac: 08:00:27:b7:e2:a4
+    multicast_ips: 
+      ff02::1:ffb7:e2a4         (NDP Solicited-node)
+  fe80::a00:27ff:fe46:dcc8: 
+    device: eth0
+    mac: 08:00:27:46:dc:c8
+    multicast_ips: 
+      ff02::1:ff46:dcc8         (NDP Solicited-node)
+  fe80::a00:27ff:fe73:d0bd: 
+    device: eth0
+    mac: 08:00:27:73:d0:bd
+    multicast_ips: 
+      ff02::1:ff73:d0bd         (NDP Solicited-node)</pre></td>
+</tr>
+<tr class="script">
+<td>eap-info </td>
+<td><pre>please specify an interface with -e</pre></td>
+</tr>
+<tr class="script">
+<td>broadcast-netbios-master-browser </td>
+<td><pre>
+ip  server  domain
+</pre></td>
+</tr>
+<tr class="script">
+<td>targets-ipv6-multicast-invalid-dst </td>
+<td><pre>
+  IP: fe80::a00:27ff:fe3f:d77b  MAC: 08:00:27:3f:d7:7b  IFACE: eth0
+  IP: fe80::a00:27ff:fec6:bbd3  MAC: 08:00:27:c6:bb:d3  IFACE: eth0
+  IP: fe80::a00:27ff:fe71:5630  MAC: 08:00:27:71:56:30  IFACE: eth0
+  IP: fe80::a00:27ff:fe8a:8a62  MAC: 08:00:27:8a:8a:62  IFACE: eth0
+  IP: fe80::a00:27ff:fe93:fdae  MAC: 08:00:27:93:fd:ae  IFACE: eth0
+  IP: fe80::a00:27ff:fe46:dcc8  MAC: 08:00:27:46:dc:c8  IFACE: eth0
+  IP: fe80::a00:27ff:fe73:d0bd  MAC: 08:00:27:73:d0:bd  IFACE: eth0
+  IP: fe80::a00:27ff:feb7:e2a4  MAC: 08:00:27:b7:e2:a4  IFACE: eth0
+  Use --script-args=newtargets to add the results as targets
+</pre></td>
+</tr>
+<tr class="script">
+<td>broadcast-listener </td>
+<td><pre>
+  ether
+      ARP Request
+        sender ip    sender mac         target ip
+        10.50.90.15  08:00:27:ff:b2:4e  10.50.90.1
+        10.50.90.2   08:00:27:72:21:36  10.50.90.7
+      EIGRP Hello
+        
+  udp
+      LLMNR
+        ip                         query
+        fe80::78d5:a898:b3f5:c3fe  pentesting
+        10.50.90.15                pentesting
+        fe80::78d5:a898:b3f5:c3fe  wpad
+        10.50.90.15                wpad
+      Netbios
+        Query
+          ip           query
+          10.50.90.15  
+</pre></td>
+</tr>
+</table>
+<hr class="print_only">
+<a name="host_10_50_90_1"></a><h2 class="up">10.50.90.1<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_10.50.90.1" class="unhidden">
+<h3>Address</h3>
+<ul>
+<li>10.50.90.1
+            (ipv4)
+          </li>
+<li>52:55:0A:32:5A:01
+            (mac)
+          </li>
+</ul>
+
+
+
+<h3>Ports</h3>
+<p>The 997 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>997 ports replied with: <b>no-response</b></p></li></ul>
+<table id="porttable_10.50.90.1" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_10.50.90.1','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_10.50.90.1','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+<tr class="open">
+<td>135</td>
+<td>tcp</td>
+<td>open</td>
+<td>msrpc </td>
+<td>syn-ack</td>
+<td>Microsoft Windows RPC </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>445</td>
+<td>tcp</td>
+<td>open</td>
+<td>microsoft-ds </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>5357</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Microsoft HTTPAPI httpd </td>
+<td>2.0 </td>
+<td>SSDP/UPnP </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>Microsoft-HTTPAPI/2.0 </pre></td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_10.50.90.1');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_10.50.90.1" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>arp-response</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_10_50_90_3"></a><h2 class="up">10.50.90.3<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_10.50.90.3" class="unhidden">
+<h3>Address</h3>
+<ul>
+<li>10.50.90.3
+            (ipv4)
+          </li>
+<li>08:00:27:8A:8A:62 - PCS Systemtechnik/Oracle VirtualBox virtual NIC 
+            (mac)
+          </li>
+</ul>
+
+
+
+<h3>Ports</h3>
+<p>The 977 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>977 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_10.50.90.3" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_10.50.90.3','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_10.50.90.3','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+<tr class="open">
+<td>21</td>
+<td>tcp</td>
+<td>open</td>
+<td>ftp </td>
+<td>syn-ack</td>
+<td>vsftpd </td>
+<td>2.3.4 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>22</td>
+<td>tcp</td>
+<td>open</td>
+<td>ssh </td>
+<td>syn-ack</td>
+<td>OpenSSH </td>
+<td>4.7p1 Debian 8ubuntu1 </td>
+<td>protocol 2.0 </td>
+</tr>
+<tr class="open">
+<td>23</td>
+<td>tcp</td>
+<td>open</td>
+<td>telnet </td>
+<td>syn-ack</td>
+<td>Linux telnetd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>25</td>
+<td>tcp</td>
+<td>open</td>
+<td>smtp </td>
+<td>syn-ack</td>
+<td>Postfix smtpd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>53</td>
+<td>tcp</td>
+<td>open</td>
+<td>domain </td>
+<td>syn-ack</td>
+<td>ISC BIND </td>
+<td>9.4.2 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Apache httpd </td>
+<td>2.2.8 </td>
+<td>(Ubuntu) DAV/2 </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>Apache/2.2.8 (Ubuntu) DAV/2 </pre></td>
+</tr>
+<tr class="open">
+<td>111</td>
+<td>tcp</td>
+<td>open</td>
+<td>rpcbind </td>
+<td>syn-ack</td>
+<td> </td>
+<td>2 </td>
+<td>RPC #100000 </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>rpcinfo </td>
+<td colspan="6"><pre>
+  program version    port/proto  service
+  100000  2            111/tcp   rpcbind
+  100000  2            111/udp   rpcbind
+  100003  2,3,4       2049/tcp   nfs
+  100003  2,3,4       2049/udp   nfs
+  100005  1,2,3      53402/udp   mountd
+  100005  1,2,3      54334/tcp   mountd
+  100021  1,3,4      58794/tcp   nlockmgr
+  100021  1,3,4      60279/udp   nlockmgr
+  100024  1          39175/tcp   status
+  100024  1          52694/udp   status
+ </pre></td>
+</tr>
+<tr class="open">
+<td>139</td>
+<td>tcp</td>
+<td>open</td>
+<td>netbios-ssn </td>
+<td>syn-ack</td>
+<td>Samba smbd </td>
+<td>3.X - 4.X </td>
+<td>workgroup: WORKGROUP </td>
+</tr>
+<tr class="open">
+<td>445</td>
+<td>tcp</td>
+<td>open</td>
+<td>netbios-ssn </td>
+<td>syn-ack</td>
+<td>Samba smbd </td>
+<td>3.X - 4.X </td>
+<td>workgroup: WORKGROUP </td>
+</tr>
+<tr class="open">
+<td>512</td>
+<td>tcp</td>
+<td>open</td>
+<td>exec </td>
+<td>syn-ack</td>
+<td>netkit-rsh rexecd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>513</td>
+<td>tcp</td>
+<td>open</td>
+<td>login </td>
+<td>syn-ack</td>
+<td>OpenBSD or Solaris rlogind </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>514</td>
+<td>tcp</td>
+<td>open</td>
+<td>tcpwrapped </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>1099</td>
+<td>tcp</td>
+<td>open</td>
+<td>java-rmi </td>
+<td>syn-ack</td>
+<td>GNU Classpath grmiregistry </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>1524</td>
+<td>tcp</td>
+<td>open</td>
+<td>bindshell </td>
+<td>syn-ack</td>
+<td>Metasploitable root shell </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>2049</td>
+<td>tcp</td>
+<td>open</td>
+<td>nfs </td>
+<td>syn-ack</td>
+<td> </td>
+<td>2-4 </td>
+<td>RPC #100003 </td>
+</tr>
+<tr class="open">
+<td>2121</td>
+<td>tcp</td>
+<td>open</td>
+<td>ftp </td>
+<td>syn-ack</td>
+<td>ProFTPD </td>
+<td>1.3.1 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>3306</td>
+<td>tcp</td>
+<td>open</td>
+<td>mysql </td>
+<td>syn-ack</td>
+<td>MySQL </td>
+<td>5.0.51a-3ubuntu5 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>5432</td>
+<td>tcp</td>
+<td>open</td>
+<td>postgresql </td>
+<td>syn-ack</td>
+<td>PostgreSQL DB </td>
+<td>8.3.0 - 8.3.7 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>5900</td>
+<td>tcp</td>
+<td>open</td>
+<td>vnc </td>
+<td>syn-ack</td>
+<td>VNC </td>
+<td> </td>
+<td>protocol 3.3 </td>
+</tr>
+<tr class="open">
+<td>6000</td>
+<td>tcp</td>
+<td>open</td>
+<td>X11 </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td>access denied </td>
+</tr>
+<tr class="open">
+<td>6667</td>
+<td>tcp</td>
+<td>open</td>
+<td>irc </td>
+<td>syn-ack</td>
+<td>UnrealIRCd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>8009</td>
+<td>tcp</td>
+<td>open</td>
+<td>ajp13 </td>
+<td>syn-ack</td>
+<td>Apache Jserv </td>
+<td> </td>
+<td>Protocol v1.3 </td>
+</tr>
+<tr class="open">
+<td>8180</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Apache Tomcat/Coyote JSP engine </td>
+<td>1.1 </td>
+<td> </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>Apache-Coyote/1.1 </pre></td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_10.50.90.3');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_10.50.90.3" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>arp-response</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_10_50_90_6"></a><h2 class="up">10.50.90.6<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_10.50.90.6" class="unhidden">
+<h3>Address</h3>
+<ul>
+<li>10.50.90.6
+            (ipv4)
+          </li>
+<li>08:00:27:B7:E2:A4 - PCS Systemtechnik/Oracle VirtualBox virtual NIC 
+            (mac)
+          </li>
+</ul>
+
+
+
+<h3>Ports</h3>
+<p>The 977 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>977 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_10.50.90.6" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_10.50.90.6','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_10.50.90.6','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+<tr class="open">
+<td>21</td>
+<td>tcp</td>
+<td>open</td>
+<td>ftp </td>
+<td>syn-ack</td>
+<td>vsftpd </td>
+<td>2.3.4 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>22</td>
+<td>tcp</td>
+<td>open</td>
+<td>ssh </td>
+<td>syn-ack</td>
+<td>OpenSSH </td>
+<td>4.7p1 Debian 8ubuntu1 </td>
+<td>protocol 2.0 </td>
+</tr>
+<tr class="open">
+<td>23</td>
+<td>tcp</td>
+<td>open</td>
+<td>telnet </td>
+<td>syn-ack</td>
+<td>Linux telnetd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>25</td>
+<td>tcp</td>
+<td>open</td>
+<td>smtp </td>
+<td>syn-ack</td>
+<td>Postfix smtpd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>53</td>
+<td>tcp</td>
+<td>open</td>
+<td>domain </td>
+<td>syn-ack</td>
+<td>ISC BIND </td>
+<td>9.4.2 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Apache httpd </td>
+<td>2.2.8 </td>
+<td>(Ubuntu) DAV/2 </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>Apache/2.2.8 (Ubuntu) DAV/2 </pre></td>
+</tr>
+<tr class="open">
+<td>111</td>
+<td>tcp</td>
+<td>open</td>
+<td>rpcbind </td>
+<td>syn-ack</td>
+<td> </td>
+<td>2 </td>
+<td>RPC #100000 </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>rpcinfo </td>
+<td colspan="6"><pre>
+  program version    port/proto  service
+  100000  2            111/tcp   rpcbind
+  100000  2            111/udp   rpcbind
+  100003  2,3,4       2049/tcp   nfs
+  100003  2,3,4       2049/udp   nfs
+  100005  1,2,3      34399/tcp   mountd
+  100005  1,2,3      51626/udp   mountd
+  100021  1,3,4      33658/tcp   nlockmgr
+  100021  1,3,4      53430/udp   nlockmgr
+  100024  1          34878/udp   status
+  100024  1          35047/tcp   status
+ </pre></td>
+</tr>
+<tr class="open">
+<td>139</td>
+<td>tcp</td>
+<td>open</td>
+<td>netbios-ssn </td>
+<td>syn-ack</td>
+<td>Samba smbd </td>
+<td>3.X - 4.X </td>
+<td>workgroup: WORKGROUP </td>
+</tr>
+<tr class="open">
+<td>445</td>
+<td>tcp</td>
+<td>open</td>
+<td>netbios-ssn </td>
+<td>syn-ack</td>
+<td>Samba smbd </td>
+<td>3.X - 4.X </td>
+<td>workgroup: WORKGROUP </td>
+</tr>
+<tr class="open">
+<td>512</td>
+<td>tcp</td>
+<td>open</td>
+<td>exec </td>
+<td>syn-ack</td>
+<td>netkit-rsh rexecd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>513</td>
+<td>tcp</td>
+<td>open</td>
+<td>login </td>
+<td>syn-ack</td>
+<td>OpenBSD or Solaris rlogind </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>514</td>
+<td>tcp</td>
+<td>open</td>
+<td>tcpwrapped </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>1099</td>
+<td>tcp</td>
+<td>open</td>
+<td>java-rmi </td>
+<td>syn-ack</td>
+<td>GNU Classpath grmiregistry </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>1524</td>
+<td>tcp</td>
+<td>open</td>
+<td>bindshell </td>
+<td>syn-ack</td>
+<td>Metasploitable root shell </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>2049</td>
+<td>tcp</td>
+<td>open</td>
+<td>nfs </td>
+<td>syn-ack</td>
+<td> </td>
+<td>2-4 </td>
+<td>RPC #100003 </td>
+</tr>
+<tr class="open">
+<td>2121</td>
+<td>tcp</td>
+<td>open</td>
+<td>ftp </td>
+<td>syn-ack</td>
+<td>ProFTPD </td>
+<td>1.3.1 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>3306</td>
+<td>tcp</td>
+<td>open</td>
+<td>mysql </td>
+<td>syn-ack</td>
+<td>MySQL </td>
+<td>5.0.51a-3ubuntu5 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>5432</td>
+<td>tcp</td>
+<td>open</td>
+<td>postgresql </td>
+<td>syn-ack</td>
+<td>PostgreSQL DB </td>
+<td>8.3.0 - 8.3.7 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>5900</td>
+<td>tcp</td>
+<td>open</td>
+<td>vnc </td>
+<td>syn-ack</td>
+<td>VNC </td>
+<td> </td>
+<td>protocol 3.3 </td>
+</tr>
+<tr class="open">
+<td>6000</td>
+<td>tcp</td>
+<td>open</td>
+<td>X11 </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td>access denied </td>
+</tr>
+<tr class="open">
+<td>6667</td>
+<td>tcp</td>
+<td>open</td>
+<td>irc </td>
+<td>syn-ack</td>
+<td>UnrealIRCd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>8009</td>
+<td>tcp</td>
+<td>open</td>
+<td>ajp13 </td>
+<td>syn-ack</td>
+<td>Apache Jserv </td>
+<td> </td>
+<td>Protocol v1.3 </td>
+</tr>
+<tr class="open">
+<td>8180</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Apache Tomcat/Coyote JSP engine </td>
+<td>1.1 </td>
+<td> </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>Apache-Coyote/1.1 </pre></td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_10.50.90.6');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_10.50.90.6" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>arp-response</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_10_50_90_7"></a><h2 class="up">10.50.90.7<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_10.50.90.7" class="unhidden">
+<h3>Address</h3>
+<ul>
+<li>10.50.90.7
+            (ipv4)
+          </li>
+<li>08:00:27:3F:D7:7B - PCS Systemtechnik/Oracle VirtualBox virtual NIC 
+            (mac)
+          </li>
+</ul>
+
+
+
+<h3>Ports</h3>
+<p>The 977 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>977 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_10.50.90.7" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_10.50.90.7','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_10.50.90.7','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+<tr class="open">
+<td>21</td>
+<td>tcp</td>
+<td>open</td>
+<td>ftp </td>
+<td>syn-ack</td>
+<td>vsftpd </td>
+<td>2.3.4 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>22</td>
+<td>tcp</td>
+<td>open</td>
+<td>ssh </td>
+<td>syn-ack</td>
+<td>OpenSSH </td>
+<td>4.7p1 Debian 8ubuntu1 </td>
+<td>protocol 2.0 </td>
+</tr>
+<tr class="open">
+<td>23</td>
+<td>tcp</td>
+<td>open</td>
+<td>telnet </td>
+<td>syn-ack</td>
+<td>Linux telnetd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>25</td>
+<td>tcp</td>
+<td>open</td>
+<td>smtp </td>
+<td>syn-ack</td>
+<td>Postfix smtpd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>53</td>
+<td>tcp</td>
+<td>open</td>
+<td>domain </td>
+<td>syn-ack</td>
+<td>ISC BIND </td>
+<td>9.4.2 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Apache httpd </td>
+<td>2.2.8 </td>
+<td>(Ubuntu) DAV/2 </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>Apache/2.2.8 (Ubuntu) DAV/2 </pre></td>
+</tr>
+<tr class="open">
+<td>111</td>
+<td>tcp</td>
+<td>open</td>
+<td>rpcbind </td>
+<td>syn-ack</td>
+<td> </td>
+<td>2 </td>
+<td>RPC #100000 </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>rpcinfo </td>
+<td colspan="6"><pre>
+  program version    port/proto  service
+  100000  2            111/tcp   rpcbind
+  100000  2            111/udp   rpcbind
+  100003  2,3,4       2049/tcp   nfs
+  100003  2,3,4       2049/udp   nfs
+  100005  1,2,3      47534/tcp   mountd
+  100005  1,2,3      52404/udp   mountd
+  100021  1,3,4      36095/udp   nlockmgr
+  100021  1,3,4      59629/tcp   nlockmgr
+  100024  1          43342/udp   status
+  100024  1          46227/tcp   status
+ </pre></td>
+</tr>
+<tr class="open">
+<td>139</td>
+<td>tcp</td>
+<td>open</td>
+<td>netbios-ssn </td>
+<td>syn-ack</td>
+<td>Samba smbd </td>
+<td>3.X - 4.X </td>
+<td>workgroup: WORKGROUP </td>
+</tr>
+<tr class="open">
+<td>445</td>
+<td>tcp</td>
+<td>open</td>
+<td>netbios-ssn </td>
+<td>syn-ack</td>
+<td>Samba smbd </td>
+<td>3.X - 4.X </td>
+<td>workgroup: WORKGROUP </td>
+</tr>
+<tr class="open">
+<td>512</td>
+<td>tcp</td>
+<td>open</td>
+<td>exec </td>
+<td>syn-ack</td>
+<td>netkit-rsh rexecd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>513</td>
+<td>tcp</td>
+<td>open</td>
+<td>login </td>
+<td>syn-ack</td>
+<td>OpenBSD or Solaris rlogind </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>514</td>
+<td>tcp</td>
+<td>open</td>
+<td>tcpwrapped </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>1099</td>
+<td>tcp</td>
+<td>open</td>
+<td>java-rmi </td>
+<td>syn-ack</td>
+<td>GNU Classpath grmiregistry </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>1524</td>
+<td>tcp</td>
+<td>open</td>
+<td>bindshell </td>
+<td>syn-ack</td>
+<td>Metasploitable root shell </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>2049</td>
+<td>tcp</td>
+<td>open</td>
+<td>nfs </td>
+<td>syn-ack</td>
+<td> </td>
+<td>2-4 </td>
+<td>RPC #100003 </td>
+</tr>
+<tr class="open">
+<td>2121</td>
+<td>tcp</td>
+<td>open</td>
+<td>ftp </td>
+<td>syn-ack</td>
+<td>ProFTPD </td>
+<td>1.3.1 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>3306</td>
+<td>tcp</td>
+<td>open</td>
+<td>mysql </td>
+<td>syn-ack</td>
+<td>MySQL </td>
+<td>5.0.51a-3ubuntu5 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>5432</td>
+<td>tcp</td>
+<td>open</td>
+<td>postgresql </td>
+<td>syn-ack</td>
+<td>PostgreSQL DB </td>
+<td>8.3.0 - 8.3.7 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>5900</td>
+<td>tcp</td>
+<td>open</td>
+<td>vnc </td>
+<td>syn-ack</td>
+<td>VNC </td>
+<td> </td>
+<td>protocol 3.3 </td>
+</tr>
+<tr class="open">
+<td>6000</td>
+<td>tcp</td>
+<td>open</td>
+<td>X11 </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td>access denied </td>
+</tr>
+<tr class="open">
+<td>6667</td>
+<td>tcp</td>
+<td>open</td>
+<td>irc </td>
+<td>syn-ack</td>
+<td>UnrealIRCd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>8009</td>
+<td>tcp</td>
+<td>open</td>
+<td>ajp13 </td>
+<td>syn-ack</td>
+<td>Apache Jserv </td>
+<td> </td>
+<td>Protocol v1.3 </td>
+</tr>
+<tr class="open">
+<td>8180</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Apache Tomcat/Coyote JSP engine </td>
+<td>1.1 </td>
+<td> </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>Apache-Coyote/1.1 </pre></td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_10.50.90.7');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_10.50.90.7" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>arp-response</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_10_50_90_8"></a><h2 class="up">10.50.90.8<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_10.50.90.8" class="unhidden">
+<h3>Address</h3>
+<ul>
+<li>10.50.90.8
+            (ipv4)
+          </li>
+<li>08:00:27:93:FD:AE - PCS Systemtechnik/Oracle VirtualBox virtual NIC 
+            (mac)
+          </li>
+</ul>
+
+
+
+<h3>Ports</h3>
+<p>The 977 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>977 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_10.50.90.8" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_10.50.90.8','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_10.50.90.8','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+<tr class="open">
+<td>21</td>
+<td>tcp</td>
+<td>open</td>
+<td>ftp </td>
+<td>syn-ack</td>
+<td>vsftpd </td>
+<td>2.3.4 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>22</td>
+<td>tcp</td>
+<td>open</td>
+<td>ssh </td>
+<td>syn-ack</td>
+<td>OpenSSH </td>
+<td>4.7p1 Debian 8ubuntu1 </td>
+<td>protocol 2.0 </td>
+</tr>
+<tr class="open">
+<td>23</td>
+<td>tcp</td>
+<td>open</td>
+<td>telnet </td>
+<td>syn-ack</td>
+<td>Linux telnetd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>25</td>
+<td>tcp</td>
+<td>open</td>
+<td>smtp </td>
+<td>syn-ack</td>
+<td>Postfix smtpd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>53</td>
+<td>tcp</td>
+<td>open</td>
+<td>domain </td>
+<td>syn-ack</td>
+<td>ISC BIND </td>
+<td>9.4.2 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Apache httpd </td>
+<td>2.2.8 </td>
+<td>(Ubuntu) DAV/2 </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>Apache/2.2.8 (Ubuntu) DAV/2 </pre></td>
+</tr>
+<tr class="open">
+<td>111</td>
+<td>tcp</td>
+<td>open</td>
+<td>rpcbind </td>
+<td>syn-ack</td>
+<td> </td>
+<td>2 </td>
+<td>RPC #100000 </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>rpcinfo </td>
+<td colspan="6"><pre>
+  program version    port/proto  service
+  100000  2            111/tcp   rpcbind
+  100000  2            111/udp   rpcbind
+  100003  2,3,4       2049/tcp   nfs
+  100003  2,3,4       2049/udp   nfs
+  100005  1,2,3      37795/udp   mountd
+  100005  1,2,3      46000/tcp   mountd
+  100021  1,3,4      37639/udp   nlockmgr
+  100021  1,3,4      58234/tcp   nlockmgr
+  100024  1          33521/udp   status
+  100024  1          49113/tcp   status
+ </pre></td>
+</tr>
+<tr class="open">
+<td>139</td>
+<td>tcp</td>
+<td>open</td>
+<td>netbios-ssn </td>
+<td>syn-ack</td>
+<td>Samba smbd </td>
+<td>3.X - 4.X </td>
+<td>workgroup: WORKGROUP </td>
+</tr>
+<tr class="open">
+<td>445</td>
+<td>tcp</td>
+<td>open</td>
+<td>netbios-ssn </td>
+<td>syn-ack</td>
+<td>Samba smbd </td>
+<td>3.X - 4.X </td>
+<td>workgroup: WORKGROUP </td>
+</tr>
+<tr class="open">
+<td>512</td>
+<td>tcp</td>
+<td>open</td>
+<td>exec </td>
+<td>syn-ack</td>
+<td>netkit-rsh rexecd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>513</td>
+<td>tcp</td>
+<td>open</td>
+<td>login </td>
+<td>syn-ack</td>
+<td>OpenBSD or Solaris rlogind </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>514</td>
+<td>tcp</td>
+<td>open</td>
+<td>tcpwrapped </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>1099</td>
+<td>tcp</td>
+<td>open</td>
+<td>java-rmi </td>
+<td>syn-ack</td>
+<td>GNU Classpath grmiregistry </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>1524</td>
+<td>tcp</td>
+<td>open</td>
+<td>bindshell </td>
+<td>syn-ack</td>
+<td>Metasploitable root shell </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>2049</td>
+<td>tcp</td>
+<td>open</td>
+<td>nfs </td>
+<td>syn-ack</td>
+<td> </td>
+<td>2-4 </td>
+<td>RPC #100003 </td>
+</tr>
+<tr class="open">
+<td>2121</td>
+<td>tcp</td>
+<td>open</td>
+<td>ftp </td>
+<td>syn-ack</td>
+<td>ProFTPD </td>
+<td>1.3.1 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>3306</td>
+<td>tcp</td>
+<td>open</td>
+<td>mysql </td>
+<td>syn-ack</td>
+<td>MySQL </td>
+<td>5.0.51a-3ubuntu5 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>5432</td>
+<td>tcp</td>
+<td>open</td>
+<td>postgresql </td>
+<td>syn-ack</td>
+<td>PostgreSQL DB </td>
+<td>8.3.0 - 8.3.7 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>5900</td>
+<td>tcp</td>
+<td>open</td>
+<td>vnc </td>
+<td>syn-ack</td>
+<td>VNC </td>
+<td> </td>
+<td>protocol 3.3 </td>
+</tr>
+<tr class="open">
+<td>6000</td>
+<td>tcp</td>
+<td>open</td>
+<td>X11 </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td>access denied </td>
+</tr>
+<tr class="open">
+<td>6667</td>
+<td>tcp</td>
+<td>open</td>
+<td>irc </td>
+<td>syn-ack</td>
+<td>UnrealIRCd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>8009</td>
+<td>tcp</td>
+<td>open</td>
+<td>ajp13 </td>
+<td>syn-ack</td>
+<td>Apache Jserv </td>
+<td> </td>
+<td>Protocol v1.3 </td>
+</tr>
+<tr class="open">
+<td>8180</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Apache Tomcat/Coyote JSP engine </td>
+<td>1.1 </td>
+<td> </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>Apache-Coyote/1.1 </pre></td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_10.50.90.8');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_10.50.90.8" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>arp-response</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_10_50_90_15"></a><h2 class="up">10.50.90.15<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_10.50.90.15" class="unhidden">
+<h3>Address</h3>
+<ul>
+<li>10.50.90.15
+            (ipv4)
+          </li>
+<li>08:00:27:FF:B2:4E - PCS Systemtechnik/Oracle VirtualBox virtual NIC 
+            (mac)
+          </li>
+</ul>
+
+
+
+<h3>Ports</h3>
+<p>The 974 ports scanned but not shown below are in state: <b>filtered</b></p>
+<ul><li><p>974 ports replied with: <b>no-response</b></p></li></ul>
+<table id="porttable_10.50.90.15" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_10.50.90.15','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_10.50.90.15','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+<tr class="open">
+<td>53</td>
+<td>tcp</td>
+<td>open</td>
+<td>domain </td>
+<td>syn-ack</td>
+<td>Simple DNS Plus </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Microsoft IIS httpd </td>
+<td>8.5 </td>
+<td> </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>Microsoft-IIS/8.5 </pre></td>
+</tr>
+<tr class="open">
+<td>88</td>
+<td>tcp</td>
+<td>open</td>
+<td>kerberos-sec </td>
+<td>syn-ack</td>
+<td>Microsoft Windows Kerberos </td>
+<td> </td>
+<td>server time: 2025-12-08 01:57:08Z </td>
+</tr>
+<tr class="open">
+<td>135</td>
+<td>tcp</td>
+<td>open</td>
+<td>msrpc </td>
+<td>syn-ack</td>
+<td>Microsoft Windows RPC </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>139</td>
+<td>tcp</td>
+<td>open</td>
+<td>netbios-ssn </td>
+<td>syn-ack</td>
+<td>Microsoft Windows netbios-ssn </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>389</td>
+<td>tcp</td>
+<td>open</td>
+<td>ldap </td>
+<td>syn-ack</td>
+<td>Microsoft Windows Active Directory LDAP </td>
+<td> </td>
+<td>Domain: pentesting.com, Site: Default-First-Site-Name </td>
+</tr>
+<tr class="open">
+<td>443</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Microsoft IIS httpd </td>
+<td>8.5 </td>
+<td> </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>Microsoft-IIS/8.5 </pre></td>
+</tr>
+<tr class="open">
+<td>445</td>
+<td>tcp</td>
+<td>open</td>
+<td>microsoft-ds </td>
+<td>syn-ack</td>
+<td>Microsoft Windows Server 2008 R2 - 2012 microsoft-ds </td>
+<td> </td>
+<td>workgroup: PENTESTING0 </td>
+</tr>
+<tr class="open">
+<td>464</td>
+<td>tcp</td>
+<td>open</td>
+<td>kpasswd5 </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>593</td>
+<td>tcp</td>
+<td>open</td>
+<td>ncacn_http </td>
+<td>syn-ack</td>
+<td>Microsoft Windows RPC over HTTP </td>
+<td>1.0 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>636</td>
+<td>tcp</td>
+<td>open</td>
+<td>tcpwrapped </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>3268</td>
+<td>tcp</td>
+<td>open</td>
+<td>ldap </td>
+<td>syn-ack</td>
+<td>Microsoft Windows Active Directory LDAP </td>
+<td> </td>
+<td>Domain: pentesting.com, Site: Default-First-Site-Name </td>
+</tr>
+<tr class="open">
+<td>3269</td>
+<td>tcp</td>
+<td>open</td>
+<td>tcpwrapped </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>3389</td>
+<td>tcp</td>
+<td>open</td>
+<td>ms-wbt-server </td>
+<td>syn-ack</td>
+<td>Microsoft Terminal Services </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>5800</td>
+<td>tcp</td>
+<td>open</td>
+<td>http-proxy </td>
+<td>syn-ack</td>
+<td>sslstrip </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>5900</td>
+<td>tcp</td>
+<td>open</td>
+<td>vnc </td>
+<td>syn-ack</td>
+<td>VNC </td>
+<td> </td>
+<td>protocol 3.8 </td>
+</tr>
+<tr class="open">
+<td>5985</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Microsoft HTTPAPI httpd </td>
+<td>2.0 </td>
+<td>SSDP/UPnP </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>Microsoft-HTTPAPI/2.0 </pre></td>
+</tr>
+<tr class="open">
+<td>49152</td>
+<td>tcp</td>
+<td>open</td>
+<td>msrpc </td>
+<td>syn-ack</td>
+<td>Microsoft Windows RPC </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>49153</td>
+<td>tcp</td>
+<td>open</td>
+<td>msrpc </td>
+<td>syn-ack</td>
+<td>Microsoft Windows RPC </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>49154</td>
+<td>tcp</td>
+<td>open</td>
+<td>msrpc </td>
+<td>syn-ack</td>
+<td>Microsoft Windows RPC </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>49155</td>
+<td>tcp</td>
+<td>open</td>
+<td>msrpc </td>
+<td>syn-ack</td>
+<td>Microsoft Windows RPC </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>49157</td>
+<td>tcp</td>
+<td>open</td>
+<td>ncacn_http </td>
+<td>syn-ack</td>
+<td>Microsoft Windows RPC over HTTP </td>
+<td>1.0 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>49158</td>
+<td>tcp</td>
+<td>open</td>
+<td>msrpc </td>
+<td>syn-ack</td>
+<td>Microsoft Windows RPC </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>49159</td>
+<td>tcp</td>
+<td>open</td>
+<td>msrpc </td>
+<td>syn-ack</td>
+<td>Microsoft Windows RPC </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>49165</td>
+<td>tcp</td>
+<td>open</td>
+<td>msrpc </td>
+<td>syn-ack</td>
+<td>Microsoft Windows RPC </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>49176</td>
+<td>tcp</td>
+<td>open</td>
+<td>msrpc </td>
+<td>syn-ack</td>
+<td>Microsoft Windows RPC </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_10.50.90.15');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_10.50.90.15" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>arp-response</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_10_50_90_16"></a><h2 class="up">10.50.90.16<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_10.50.90.16" class="unhidden">
+<h3>Address</h3>
+<ul>
+<li>10.50.90.16
+            (ipv4)
+          </li>
+<li>08:00:27:46:DC:C8 - PCS Systemtechnik/Oracle VirtualBox virtual NIC 
+            (mac)
+          </li>
+</ul>
+
+
+
+<h3>Ports</h3>
+<p>The 977 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>977 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_10.50.90.16" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_10.50.90.16','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_10.50.90.16','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+<tr class="open">
+<td>21</td>
+<td>tcp</td>
+<td>open</td>
+<td>ftp </td>
+<td>syn-ack</td>
+<td>vsftpd </td>
+<td>2.3.4 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>22</td>
+<td>tcp</td>
+<td>open</td>
+<td>ssh </td>
+<td>syn-ack</td>
+<td>OpenSSH </td>
+<td>4.7p1 Debian 8ubuntu1 </td>
+<td>protocol 2.0 </td>
+</tr>
+<tr class="open">
+<td>23</td>
+<td>tcp</td>
+<td>open</td>
+<td>telnet </td>
+<td>syn-ack</td>
+<td>Linux telnetd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>25</td>
+<td>tcp</td>
+<td>open</td>
+<td>smtp </td>
+<td>syn-ack</td>
+<td>Postfix smtpd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>53</td>
+<td>tcp</td>
+<td>open</td>
+<td>domain </td>
+<td>syn-ack</td>
+<td>ISC BIND </td>
+<td>9.4.2 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Apache httpd </td>
+<td>2.2.8 </td>
+<td>(Ubuntu) DAV/2 </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>Apache/2.2.8 (Ubuntu) DAV/2 </pre></td>
+</tr>
+<tr class="open">
+<td>111</td>
+<td>tcp</td>
+<td>open</td>
+<td>rpcbind </td>
+<td>syn-ack</td>
+<td> </td>
+<td>2 </td>
+<td>RPC #100000 </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>rpcinfo </td>
+<td colspan="6"><pre>
+  program version    port/proto  service
+  100000  2            111/tcp   rpcbind
+  100000  2            111/udp   rpcbind
+  100003  2,3,4       2049/tcp   nfs
+  100003  2,3,4       2049/udp   nfs
+  100005  1,2,3      58185/udp   mountd
+  100005  1,2,3      59597/tcp   mountd
+  100021  1,3,4      48245/udp   nlockmgr
+  100021  1,3,4      54742/tcp   nlockmgr
+  100024  1          52498/udp   status
+  100024  1          60477/tcp   status
+ </pre></td>
+</tr>
+<tr class="open">
+<td>139</td>
+<td>tcp</td>
+<td>open</td>
+<td>netbios-ssn </td>
+<td>syn-ack</td>
+<td>Samba smbd </td>
+<td>3.X - 4.X </td>
+<td>workgroup: WORKGROUP </td>
+</tr>
+<tr class="open">
+<td>445</td>
+<td>tcp</td>
+<td>open</td>
+<td>netbios-ssn </td>
+<td>syn-ack</td>
+<td>Samba smbd </td>
+<td>3.X - 4.X </td>
+<td>workgroup: WORKGROUP </td>
+</tr>
+<tr class="open">
+<td>512</td>
+<td>tcp</td>
+<td>open</td>
+<td>exec </td>
+<td>syn-ack</td>
+<td>netkit-rsh rexecd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>513</td>
+<td>tcp</td>
+<td>open</td>
+<td>login </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>514</td>
+<td>tcp</td>
+<td>open</td>
+<td>tcpwrapped </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>1099</td>
+<td>tcp</td>
+<td>open</td>
+<td>java-rmi </td>
+<td>syn-ack</td>
+<td>GNU Classpath grmiregistry </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>1524</td>
+<td>tcp</td>
+<td>open</td>
+<td>bindshell </td>
+<td>syn-ack</td>
+<td>Metasploitable root shell </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>2049</td>
+<td>tcp</td>
+<td>open</td>
+<td>nfs </td>
+<td>syn-ack</td>
+<td> </td>
+<td>2-4 </td>
+<td>RPC #100003 </td>
+</tr>
+<tr class="open">
+<td>2121</td>
+<td>tcp</td>
+<td>open</td>
+<td>ftp </td>
+<td>syn-ack</td>
+<td>ProFTPD </td>
+<td>1.3.1 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>3306</td>
+<td>tcp</td>
+<td>open</td>
+<td>mysql </td>
+<td>syn-ack</td>
+<td>MySQL </td>
+<td>5.0.51a-3ubuntu5 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>5432</td>
+<td>tcp</td>
+<td>open</td>
+<td>postgresql </td>
+<td>syn-ack</td>
+<td>PostgreSQL DB </td>
+<td>8.3.0 - 8.3.7 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>5900</td>
+<td>tcp</td>
+<td>open</td>
+<td>vnc </td>
+<td>syn-ack</td>
+<td>VNC </td>
+<td> </td>
+<td>protocol 3.3 </td>
+</tr>
+<tr class="open">
+<td>6000</td>
+<td>tcp</td>
+<td>open</td>
+<td>X11 </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td>access denied </td>
+</tr>
+<tr class="open">
+<td>6667</td>
+<td>tcp</td>
+<td>open</td>
+<td>irc </td>
+<td>syn-ack</td>
+<td>UnrealIRCd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>8009</td>
+<td>tcp</td>
+<td>open</td>
+<td>ajp13 </td>
+<td>syn-ack</td>
+<td>Apache Jserv </td>
+<td> </td>
+<td>Protocol v1.3 </td>
+</tr>
+<tr class="open">
+<td>8180</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Apache Tomcat/Coyote JSP engine </td>
+<td>1.1 </td>
+<td> </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>Apache-Coyote/1.1 </pre></td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_10.50.90.16');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_10.50.90.16" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>arp-response</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_10_50_90_17"></a><h2 class="up">10.50.90.17<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_10.50.90.17" class="unhidden">
+<h3>Address</h3>
+<ul>
+<li>10.50.90.17
+            (ipv4)
+          </li>
+<li>08:00:27:73:D0:BD - PCS Systemtechnik/Oracle VirtualBox virtual NIC 
+            (mac)
+          </li>
+</ul>
+
+
+
+<h3>Ports</h3>
+<p>The 977 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>977 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_10.50.90.17" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_10.50.90.17','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_10.50.90.17','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+<tr class="open">
+<td>21</td>
+<td>tcp</td>
+<td>open</td>
+<td>ftp </td>
+<td>syn-ack</td>
+<td>vsftpd </td>
+<td>2.3.4 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>22</td>
+<td>tcp</td>
+<td>open</td>
+<td>ssh </td>
+<td>syn-ack</td>
+<td>OpenSSH </td>
+<td>4.7p1 Debian 8ubuntu1 </td>
+<td>protocol 2.0 </td>
+</tr>
+<tr class="open">
+<td>23</td>
+<td>tcp</td>
+<td>open</td>
+<td>telnet </td>
+<td>syn-ack</td>
+<td>Linux telnetd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>25</td>
+<td>tcp</td>
+<td>open</td>
+<td>smtp </td>
+<td>syn-ack</td>
+<td>Postfix smtpd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>53</td>
+<td>tcp</td>
+<td>open</td>
+<td>domain </td>
+<td>syn-ack</td>
+<td>ISC BIND </td>
+<td>9.4.2 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Apache httpd </td>
+<td>2.2.8 </td>
+<td>(Ubuntu) DAV/2 </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>Apache/2.2.8 (Ubuntu) DAV/2 </pre></td>
+</tr>
+<tr class="open">
+<td>111</td>
+<td>tcp</td>
+<td>open</td>
+<td>rpcbind </td>
+<td>syn-ack</td>
+<td> </td>
+<td>2 </td>
+<td>RPC #100000 </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>rpcinfo </td>
+<td colspan="6"><pre>
+  program version    port/proto  service
+  100000  2            111/tcp   rpcbind
+  100000  2            111/udp   rpcbind
+  100003  2,3,4       2049/tcp   nfs
+  100003  2,3,4       2049/udp   nfs
+  100005  1,2,3      47775/tcp   mountd
+  100005  1,2,3      57992/udp   mountd
+  100021  1,3,4      35532/udp   nlockmgr
+  100021  1,3,4      51456/tcp   nlockmgr
+  100024  1          49349/tcp   status
+  100024  1          58804/udp   status
+ </pre></td>
+</tr>
+<tr class="open">
+<td>139</td>
+<td>tcp</td>
+<td>open</td>
+<td>netbios-ssn </td>
+<td>syn-ack</td>
+<td>Samba smbd </td>
+<td>3.X - 4.X </td>
+<td>workgroup: WORKGROUP </td>
+</tr>
+<tr class="open">
+<td>445</td>
+<td>tcp</td>
+<td>open</td>
+<td>netbios-ssn </td>
+<td>syn-ack</td>
+<td>Samba smbd </td>
+<td>3.X - 4.X </td>
+<td>workgroup: WORKGROUP </td>
+</tr>
+<tr class="open">
+<td>512</td>
+<td>tcp</td>
+<td>open</td>
+<td>exec </td>
+<td>syn-ack</td>
+<td>netkit-rsh rexecd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>513</td>
+<td>tcp</td>
+<td>open</td>
+<td>login </td>
+<td>syn-ack</td>
+<td>OpenBSD or Solaris rlogind </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>514</td>
+<td>tcp</td>
+<td>open</td>
+<td>tcpwrapped </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>1099</td>
+<td>tcp</td>
+<td>open</td>
+<td>java-rmi </td>
+<td>syn-ack</td>
+<td>GNU Classpath grmiregistry </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>1524</td>
+<td>tcp</td>
+<td>open</td>
+<td>bindshell </td>
+<td>syn-ack</td>
+<td>Metasploitable root shell </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>2049</td>
+<td>tcp</td>
+<td>open</td>
+<td>nfs </td>
+<td>syn-ack</td>
+<td> </td>
+<td>2-4 </td>
+<td>RPC #100003 </td>
+</tr>
+<tr class="open">
+<td>2121</td>
+<td>tcp</td>
+<td>open</td>
+<td>ftp </td>
+<td>syn-ack</td>
+<td>ProFTPD </td>
+<td>1.3.1 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>3306</td>
+<td>tcp</td>
+<td>open</td>
+<td>mysql </td>
+<td>syn-ack</td>
+<td>MySQL </td>
+<td>5.0.51a-3ubuntu5 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>5432</td>
+<td>tcp</td>
+<td>open</td>
+<td>postgresql </td>
+<td>syn-ack</td>
+<td>PostgreSQL DB </td>
+<td>8.3.0 - 8.3.7 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>5900</td>
+<td>tcp</td>
+<td>open</td>
+<td>vnc </td>
+<td>syn-ack</td>
+<td>VNC </td>
+<td> </td>
+<td>protocol 3.3 </td>
+</tr>
+<tr class="open">
+<td>6000</td>
+<td>tcp</td>
+<td>open</td>
+<td>X11 </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td>access denied </td>
+</tr>
+<tr class="open">
+<td>6667</td>
+<td>tcp</td>
+<td>open</td>
+<td>irc </td>
+<td>syn-ack</td>
+<td>UnrealIRCd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>8009</td>
+<td>tcp</td>
+<td>open</td>
+<td>ajp13 </td>
+<td>syn-ack</td>
+<td>Apache Jserv </td>
+<td> </td>
+<td>Protocol v1.3 </td>
+</tr>
+<tr class="open">
+<td>8180</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Apache Tomcat/Coyote JSP engine </td>
+<td>1.1 </td>
+<td> </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>Apache-Coyote/1.1 </pre></td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_10.50.90.17');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_10.50.90.17" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>arp-response</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_10_50_90_18"></a><h2 class="up">10.50.90.18<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_10.50.90.18" class="unhidden">
+<h3>Address</h3>
+<ul>
+<li>10.50.90.18
+            (ipv4)
+          </li>
+<li>08:00:27:71:56:30 - PCS Systemtechnik/Oracle VirtualBox virtual NIC 
+            (mac)
+          </li>
+</ul>
+
+
+
+<h3>Ports</h3>
+<p>The 977 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>977 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_10.50.90.18" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_10.50.90.18','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_10.50.90.18','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+<tr class="open">
+<td>21</td>
+<td>tcp</td>
+<td>open</td>
+<td>ftp </td>
+<td>syn-ack</td>
+<td>vsftpd </td>
+<td>2.3.4 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>22</td>
+<td>tcp</td>
+<td>open</td>
+<td>ssh </td>
+<td>syn-ack</td>
+<td>OpenSSH </td>
+<td>4.7p1 Debian 8ubuntu1 </td>
+<td>protocol 2.0 </td>
+</tr>
+<tr class="open">
+<td>23</td>
+<td>tcp</td>
+<td>open</td>
+<td>telnet </td>
+<td>syn-ack</td>
+<td>Linux telnetd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>25</td>
+<td>tcp</td>
+<td>open</td>
+<td>smtp </td>
+<td>syn-ack</td>
+<td>Postfix smtpd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>53</td>
+<td>tcp</td>
+<td>open</td>
+<td>domain </td>
+<td>syn-ack</td>
+<td>ISC BIND </td>
+<td>9.4.2 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Apache httpd </td>
+<td>2.2.8 </td>
+<td>(Ubuntu) DAV/2 </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>Apache/2.2.8 (Ubuntu) DAV/2 </pre></td>
+</tr>
+<tr class="open">
+<td>111</td>
+<td>tcp</td>
+<td>open</td>
+<td>rpcbind </td>
+<td>syn-ack</td>
+<td> </td>
+<td>2 </td>
+<td>RPC #100000 </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>rpcinfo </td>
+<td colspan="6"><pre>
+  program version    port/proto  service
+  100000  2            111/tcp   rpcbind
+  100000  2            111/udp   rpcbind
+  100003  2,3,4       2049/tcp   nfs
+  100003  2,3,4       2049/udp   nfs
+  100005  1,2,3      45876/tcp   mountd
+  100005  1,2,3      55866/udp   mountd
+  100021  1,3,4      43490/tcp   nlockmgr
+  100021  1,3,4      58109/udp   nlockmgr
+  100024  1          41030/tcp   status
+  100024  1          49109/udp   status
+ </pre></td>
+</tr>
+<tr class="open">
+<td>139</td>
+<td>tcp</td>
+<td>open</td>
+<td>netbios-ssn </td>
+<td>syn-ack</td>
+<td>Samba smbd </td>
+<td>3.X - 4.X </td>
+<td>workgroup: WORKGROUP </td>
+</tr>
+<tr class="open">
+<td>445</td>
+<td>tcp</td>
+<td>open</td>
+<td>netbios-ssn </td>
+<td>syn-ack</td>
+<td>Samba smbd </td>
+<td>3.X - 4.X </td>
+<td>workgroup: WORKGROUP </td>
+</tr>
+<tr class="open">
+<td>512</td>
+<td>tcp</td>
+<td>open</td>
+<td>exec </td>
+<td>syn-ack</td>
+<td>netkit-rsh rexecd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>513</td>
+<td>tcp</td>
+<td>open</td>
+<td>login </td>
+<td>syn-ack</td>
+<td>OpenBSD or Solaris rlogind </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>514</td>
+<td>tcp</td>
+<td>open</td>
+<td>tcpwrapped </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>1099</td>
+<td>tcp</td>
+<td>open</td>
+<td>java-rmi </td>
+<td>syn-ack</td>
+<td>GNU Classpath grmiregistry </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>1524</td>
+<td>tcp</td>
+<td>open</td>
+<td>bindshell </td>
+<td>syn-ack</td>
+<td>Metasploitable root shell </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>2049</td>
+<td>tcp</td>
+<td>open</td>
+<td>nfs </td>
+<td>syn-ack</td>
+<td> </td>
+<td>2-4 </td>
+<td>RPC #100003 </td>
+</tr>
+<tr class="open">
+<td>2121</td>
+<td>tcp</td>
+<td>open</td>
+<td>ftp </td>
+<td>syn-ack</td>
+<td>ProFTPD </td>
+<td>1.3.1 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>3306</td>
+<td>tcp</td>
+<td>open</td>
+<td>mysql </td>
+<td>syn-ack</td>
+<td>MySQL </td>
+<td>5.0.51a-3ubuntu5 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>5432</td>
+<td>tcp</td>
+<td>open</td>
+<td>postgresql </td>
+<td>syn-ack</td>
+<td>PostgreSQL DB </td>
+<td>8.3.0 - 8.3.7 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>5900</td>
+<td>tcp</td>
+<td>open</td>
+<td>vnc </td>
+<td>syn-ack</td>
+<td>VNC </td>
+<td> </td>
+<td>protocol 3.3 </td>
+</tr>
+<tr class="open">
+<td>6000</td>
+<td>tcp</td>
+<td>open</td>
+<td>X11 </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td>access denied </td>
+</tr>
+<tr class="open">
+<td>6667</td>
+<td>tcp</td>
+<td>open</td>
+<td>irc </td>
+<td>syn-ack</td>
+<td>UnrealIRCd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>8009</td>
+<td>tcp</td>
+<td>open</td>
+<td>ajp13 </td>
+<td>syn-ack</td>
+<td>Apache Jserv </td>
+<td> </td>
+<td>Protocol v1.3 </td>
+</tr>
+<tr class="open">
+<td>8180</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Apache Tomcat/Coyote JSP engine </td>
+<td>1.1 </td>
+<td> </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>Apache-Coyote/1.1 </pre></td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_10.50.90.18');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_10.50.90.18" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>arp-response</td>
+</tr>
+</table></div>
+</div>
+<hr class="print_only">
+<a name="host_10_50_90_19"></a><h2 class="up">10.50.90.19<span class="print_only">(online)</span>
+</h2>
+<div id="hostblock_10.50.90.19" class="unhidden">
+<h3>Address</h3>
+<ul>
+<li>10.50.90.19
+            (ipv4)
+          </li>
+<li>08:00:27:C6:BB:D3 - PCS Systemtechnik/Oracle VirtualBox virtual NIC 
+            (mac)
+          </li>
+</ul>
+
+
+
+<h3>Ports</h3>
+<p>The 977 ports scanned but not shown below are in state: <b>closed</b></p>
+<ul><li><p>977 ports replied with: <b>reset</b></p></li></ul>
+<table id="porttable_10.50.90.19" cellspacing="1">
+<tr class="head">
+<td colspan="2">Port</td>
+<td>State 
+          <a href="javascript:togglePorts('porttable_10.50.90.19','closed');"><span class="noprint"><small> (toggle closed [0] </small></span></a><a href="javascript:togglePorts('porttable_10.50.90.19','filtered');"><span class="noprint"><small> | filtered [0])</small></span></a>
+</td>
+<td>Service</td>
+<td>Reason</td>
+<td>Product</td>
+<td>Version</td>
+<td>Extra info</td>
+</tr>
+
+
+<tr class="open">
+<td>21</td>
+<td>tcp</td>
+<td>open</td>
+<td>ftp </td>
+<td>syn-ack</td>
+<td>vsftpd </td>
+<td>2.3.4 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>22</td>
+<td>tcp</td>
+<td>open</td>
+<td>ssh </td>
+<td>syn-ack</td>
+<td>OpenSSH </td>
+<td>4.7p1 Debian 8ubuntu1 </td>
+<td>protocol 2.0 </td>
+</tr>
+<tr class="open">
+<td>23</td>
+<td>tcp</td>
+<td>open</td>
+<td>telnet </td>
+<td>syn-ack</td>
+<td>Linux telnetd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>25</td>
+<td>tcp</td>
+<td>open</td>
+<td>smtp </td>
+<td>syn-ack</td>
+<td>Postfix smtpd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>53</td>
+<td>tcp</td>
+<td>open</td>
+<td>domain </td>
+<td>syn-ack</td>
+<td>ISC BIND </td>
+<td>9.4.2 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>80</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Apache httpd </td>
+<td>2.2.8 </td>
+<td>(Ubuntu) DAV/2 </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>Apache/2.2.8 (Ubuntu) DAV/2 </pre></td>
+</tr>
+<tr class="open">
+<td>111</td>
+<td>tcp</td>
+<td>open</td>
+<td>rpcbind </td>
+<td>syn-ack</td>
+<td> </td>
+<td>2 </td>
+<td>RPC #100000 </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>rpcinfo </td>
+<td colspan="6"><pre>
+  program version    port/proto  service
+  100000  2            111/tcp   rpcbind
+  100000  2            111/udp   rpcbind
+  100003  2,3,4       2049/tcp   nfs
+  100003  2,3,4       2049/udp   nfs
+  100005  1,2,3      41102/udp   mountd
+  100005  1,2,3      57728/tcp   mountd
+  100021  1,3,4      32863/tcp   nlockmgr
+  100021  1,3,4      39515/udp   nlockmgr
+  100024  1          35694/udp   status
+  100024  1          43892/tcp   status
+ </pre></td>
+</tr>
+<tr class="open">
+<td>139</td>
+<td>tcp</td>
+<td>open</td>
+<td>netbios-ssn </td>
+<td>syn-ack</td>
+<td>Samba smbd </td>
+<td>3.X - 4.X </td>
+<td>workgroup: WORKGROUP </td>
+</tr>
+<tr class="open">
+<td>445</td>
+<td>tcp</td>
+<td>open</td>
+<td>netbios-ssn </td>
+<td>syn-ack</td>
+<td>Samba smbd </td>
+<td>3.X - 4.X </td>
+<td>workgroup: WORKGROUP </td>
+</tr>
+<tr class="open">
+<td>512</td>
+<td>tcp</td>
+<td>open</td>
+<td>exec </td>
+<td>syn-ack</td>
+<td>netkit-rsh rexecd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>513</td>
+<td>tcp</td>
+<td>open</td>
+<td>login </td>
+<td>syn-ack</td>
+<td>OpenBSD or Solaris rlogind </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>514</td>
+<td>tcp</td>
+<td>open</td>
+<td>tcpwrapped </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>1099</td>
+<td>tcp</td>
+<td>open</td>
+<td>java-rmi </td>
+<td>syn-ack</td>
+<td>GNU Classpath grmiregistry </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>1524</td>
+<td>tcp</td>
+<td>open</td>
+<td>bindshell </td>
+<td>syn-ack</td>
+<td>Metasploitable root shell </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>2049</td>
+<td>tcp</td>
+<td>open</td>
+<td>nfs </td>
+<td>syn-ack</td>
+<td> </td>
+<td>2-4 </td>
+<td>RPC #100003 </td>
+</tr>
+<tr class="open">
+<td>2121</td>
+<td>tcp</td>
+<td>open</td>
+<td>ftp </td>
+<td>syn-ack</td>
+<td>ProFTPD </td>
+<td>1.3.1 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>3306</td>
+<td>tcp</td>
+<td>open</td>
+<td>mysql </td>
+<td>syn-ack</td>
+<td>MySQL </td>
+<td>5.0.51a-3ubuntu5 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>5432</td>
+<td>tcp</td>
+<td>open</td>
+<td>postgresql </td>
+<td>syn-ack</td>
+<td>PostgreSQL DB </td>
+<td>8.3.0 - 8.3.7 </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>5900</td>
+<td>tcp</td>
+<td>open</td>
+<td>vnc </td>
+<td>syn-ack</td>
+<td>VNC </td>
+<td> </td>
+<td>protocol 3.3 </td>
+</tr>
+<tr class="open">
+<td>6000</td>
+<td>tcp</td>
+<td>open</td>
+<td>X11 </td>
+<td>syn-ack</td>
+<td> </td>
+<td> </td>
+<td>access denied </td>
+</tr>
+<tr class="open">
+<td>6667</td>
+<td>tcp</td>
+<td>open</td>
+<td>irc </td>
+<td>syn-ack</td>
+<td>UnrealIRCd </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="open">
+<td>8009</td>
+<td>tcp</td>
+<td>open</td>
+<td>ajp13 </td>
+<td>syn-ack</td>
+<td>Apache Jserv </td>
+<td> </td>
+<td>Protocol v1.3 </td>
+</tr>
+<tr class="open">
+<td>8180</td>
+<td>tcp</td>
+<td>open</td>
+<td>http </td>
+<td>syn-ack</td>
+<td>Apache Tomcat/Coyote JSP engine </td>
+<td>1.1 </td>
+<td> </td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-server-header </td>
+<td colspan="6"><pre>Apache-Coyote/1.1 </pre></td>
+</tr>
+</table>
+
+<br><a href="javascript:toggle('metrics_10.50.90.19');">
+    Misc Metrics <span class="noprint"><small> (click to expand)</small></span></a><div id="metrics_10.50.90.19" class="hidden"><table cellspacing="1">
+<tr class="head">
+<td>Metric</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>Ping Results</td>
+<td>arp-response</td>
+</tr>
+</table></div>
+</div>
+</div>
+<div id="menubox" class="noprint">
+<a href="#top"><small>Go to top</small></a><br><a href="javascript:toggleAll('closed');"><small>Toggle Closed Ports</small></a><br><a href="javascript:toggleAll('filtered');"><small>Toggle Filtered Ports</small></a>
+</div>
+</body>
+</html>
