@@ -1,0 +1,1 @@
+hashcat -a 0 -m 100 sha1.txt /usr/share/wordlists/rockyou.txt
