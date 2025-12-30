@@ -1,4 +1,4 @@
-Hashcat Attack Collection
+🔐 Hashcat Attack Collection
 
 This section documents a range of Hashcat password recovery techniques tested against locally generated hashes in a controlled lab environment.
 
