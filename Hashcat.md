@@ -1,14 +1,47 @@
-This command demonstrates a basic dictionary attack using Hashcat against locally generated MD5 hashes.
-hashcat -a 0 -m 0 /home/robot/hashes.txt /usr/share/wordlists/rockyou.txt 
+Hashcat Attack Collection
 
-This command demonstrates a basic dictionary attack using Hashcat against locally generated SHA1 hashes.
-hashcat -a 0 -m 100 /home/robot/hashes.txt /usr/share/wordlists/rockyou.txt 
+This section documents a range of Hashcat password recovery techniques tested against locally generated hashes in a controlled lab environment.
 
-This command demonstrates a basic dictionary attack using Hashcat against locally generated SHA224 hashes.
-hashcat -a 0 -m 1300 /home/robot/hashes.txt /usr/share/wordlists/rockyou.txt 
+The repository includes foundational dictionary attacks as well as more advanced attack methods as they are explored and added over time.
 
-This command demonstrates a basic dictionary attack using Hashcat against locally generated SHA256 hashes.
-hashcat -a 0 -m 1400 /home/robot/hashes.txt /usr/share/wordlists/rockyou.txt
+All testing was performed on data I own or have explicit permission to use.
+Unauthorized password cracking is illegal.
 
-This command demonstrates a basic dictionary attack using Hashcat against locally generated SHA512 hashes.
-hashcat -a 0 -m 1700 /home/robot/hashes.txt /usr/share/wordlists/rockyou.txt 
+📁 Hash Types Covered
+
+MD5
+
+SHA1
+
+SHA224
+
+SHA256
+
+SHA512
+(Additional hash types and modes may be added)
+
+🧰 Attack Modes Used
+
+Straight / Dictionary attacks (-a 0)
+
+Rule-based attacks (planned / expanding)
+
+Mask attacks (planned / expanding)
+
+Hybrid attacks (planned / expanding)
+
+🧪 Example Dictionary Attacks
+MD5
+hashcat -a 0 -m 0 hashes.txt rockyou.txt
+
+SHA1
+hashcat -a 0 -m 100 hashes.txt rockyou.txt
+
+SHA224
+hashcat -a 0 -m 1300 hashes.txt rockyou.txt
+
+SHA256
+hashcat -a 0 -m 1400 hashes.txt rockyou.txt
+
+SHA512
+hashcat -a 0 -m 1700 hashes.txt rockyou.txt
