@@ -32,16 +32,16 @@ Hybrid attacks (planned / expanding)
 
 🧪 Example Dictionary Attacks
 # MD5
-hashcat -a 0 -m 0 hashes.txt rockyou.txt
+hashcat -a 0 -m 0 hashes.txt /usr/share/wordlists/rockyou.txt
 
 # SHA1
-hashcat -a 0 -m 100 hashes.txt rockyou.txt
+hashcat -a 0 -m 100 hashes.txt /usr/share/wordlists/rockyou.txt
 
 # SHA224
-hashcat -a 0 -m 1300 hashes.txt rockyou.txt
+hashcat -a 0 -m 1300 hashes.txt /usr/share/wordlists/rockyou.txt
 
 # SHA256
-hashcat -a 0 -m 1400 hashes.txt rockyou.txt
+hashcat -a 0 -m 1400 hashes.txt /usr/share/wordlists/rockyou.txt
 
 # SHA512
-hashcat -a 0 -m 1700 hashes.txt rockyou.txt
+hashcat -a 0 -m 1700 hashes.txt /usr/share/wordlists/rockyou.txt
