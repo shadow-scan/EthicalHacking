@@ -1,1 +1,0 @@
-hashcat -a 0 -m 0 /home/robot/hash.txt /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule
