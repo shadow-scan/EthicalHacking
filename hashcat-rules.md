@@ -22,9 +22,7 @@ Stored in: /home/robot/hash.txt
 Used solely for authorized testing and experimentation
 
 # 🧪 Example Rule‑Based Attack
-hashcat -a 0 -m 0 /home/robot/hash.txt \
-/usr/share/wordlists/rockyou.txt \
--r /usr/share/hashcat/rules/best64.rule
+hashcat -a 0 -m 0 /home/robot/hash.txt /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule
 
 # 🔍 Command Breakdown
 
