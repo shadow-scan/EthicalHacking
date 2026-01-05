@@ -1,47 +1,44 @@
-# 🔐 Hashcat Attack Collection
+# 🔐 Hashcat Dictionary Attacks
 
-This section documents a wide range of Hashcat password recovery techniques tested against locally generated hashes in a controlled lab environment.
+This document focuses on Hashcat straight / dictionary attacks performed against locally generated hashes in a controlled lab environment.
 
-The repository includes foundational dictionary attacks as well as more advanced attack methods as they are explored and added over time.
+The purpose of this section is to document foundational password auditing techniques using wordlists before progressing to more advanced Hashcat attack modes in separate documentation.
 
-All testing was performed on data I own or have explicit permission to use.
-Unauthorized password cracking is illegal.
+⚠️ All testing was performed on data I own or have explicit permission to use.
+Unauthorized password cracking is illegal and unethical.
 
 # 📁 Hash Types Covered
 
 MD5
 
-SHA1
+SHA‑1
 
-SHA224
+SHA‑224
 
-SHA256
+SHA‑256
 
-SHA512
-(Additional hash types and modes may be added)
+SHA‑512
 
-# 🧰 Attack Modes Used
+(Additional hash types may be added as part of dictionary‑based testing.)
+
+# 🧰 Attack Mode Used
 
 Straight / Dictionary attacks (-a 0)
 
-Rule-based attacks (planned / expanding)
+Rule‑based, mask, and hybrid attacks are documented separately as they are explored.
 
-Mask attacks (planned / expanding)
-
-Hybrid attacks (planned / expanding)
-
-🧪 Example Dictionary Attacks
+# 🧪 Example Dictionary Attacks
 # MD5
 hashcat -a 0 -m 0 hashes.txt /usr/share/wordlists/rockyou.txt
 
-# SHA1
+# SHA‑1
 hashcat -a 0 -m 100 hashes.txt /usr/share/wordlists/rockyou.txt
 
-# SHA224
+# SHA‑224
 hashcat -a 0 -m 1300 hashes.txt /usr/share/wordlists/rockyou.txt
 
-# SHA256
+# SHA‑256
 hashcat -a 0 -m 1400 hashes.txt /usr/share/wordlists/rockyou.txt
 
-# SHA512
+# SHA‑512
 hashcat -a 0 -m 1700 hashes.txt /usr/share/wordlists/rockyou.txt
