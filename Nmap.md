@@ -2,8 +2,12 @@
 
 This repository contains a collection of **Nmap scan outputs** used for educational cybersecurity practice, network enumeration, and ethical hacking labs.
 
-All scans were performed on systems I own or have explicit permission to test.  
-**Do not use these commands on unauthorized targets — scanning without permission is illegal.**
+## 🧪 Test Environment
+
+All Nmap scans in this repository were performed in a controlled lab environment using intentionally vulnerable machines such as **Metasploitable2** on a private network.
+
+No scans were conducted against production systems or unauthorized targets.
+
 
 ---
 
